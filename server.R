@@ -2,6 +2,7 @@ library(shiny)
 library(ggplot2)
 library(logging)
 library(magrittr)
+library(DT)
 source("API/call.api.R")
 source("app.properties")
 source("Common/load.data.R")
@@ -34,7 +35,7 @@ observe({
   updateRadioButtons(session, "choose.grade", choices = grades, selected = "")
 })
 
-output$dailyLoan <- renderTable({
+output$dailyLoan <- DT::renderDataTable({
   loan.data() %>%
     subset(., term==input$terms & grade==input$choose.grade)
 })
