@@ -7,29 +7,78 @@ shinyUI(fluidPage(
   
   # Sidebar with a slider input for number of bins
   sidebarPanel(
-<<<<<<< 83d8307a194206cd03c4ef30ee34755b081a4dd2
     sliderInput("bins",
                 "Number of bins:",
                 min = 1,
                 max = 50,
                 value = 30),
     actionButton("submit_button", lable = "Submit")
-=======
-    selectInput(
+  ),
+  # nav list panel
+  navlistPanel(
+    "title",
+    #tab 1
+    tabPanel(
+      "subtitle1",
+      tabsetPanel(
+        "subsubtitle1",
+        tabPanel("plot",
+                 DT::dataTableOutput("dailyLoan")
+                 ),
+        tabPanel(""),
+        tabPanel("")
+      )
+    ),
+    #tab 2
+    tabPanel(
+      "subtitle 2"
+    ),
+    #tab 3
+    tabPanel(
+      "subtitle3"
+    ),
+    tabPanel(
+      selectInput(
       "terms",
       "Select terms:",
       choices = ""
+    )
     ),
-    radioButtons(
+    tabPanel(
+      radioButtons(
       "choose.grade",
       "select grades:",
       choices = ""  
     )
->>>>>>> enable refreshing every hour and filter by terms
   ),
   
   # Show a table of the active loans
   mainPanel(
     DT::dataTableOutput("dailyLoan")
+    )
+    
   )
-))
+)
+)
+#   # Application title
+#   titlePanel("LendingClub Loan Listing Data"),
+#   
+#   # Sidebar with a slider input for number of bins
+#   sidebarPanel(
+#     selectInput(
+#       "terms",
+#       "Select terms:",
+#       choices = ""
+#     ),
+#     radioButtons(
+#       "choose.grade",
+#       "select grades:",
+#       choices = ""  
+#     )
+#   ),
+#   
+#   # Show a table of the active loans
+#   mainPanel(
+#     DT::dataTableOutput("dailyLoan")
+#   )
+# ))
