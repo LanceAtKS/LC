@@ -13,7 +13,7 @@ shinyUI(fluidPage(
                 min = 1,
                 max = 50,
                 value = 30),
-    actionButton("submit_button", lable = "Submit")
+    actionButton("submit_button", label = "Submit")
   ),
   # nav list panel
   navlistPanel(
