@@ -1,16 +1,10 @@
-
-# This is the user-interface definition of a Shiny web application.
-# You can find out more about building applications with Shiny here:
-# 
-# http://www.rstudio.com/shiny/
-#
-
 library(shiny)
+library(shinyjs)
 
-shinyUI(pageWithSidebar(
-  
+shinyUI(fluidPage(
+
   # Application title
-  headerPanel("Old Faithful Geyser Data"),
+  titlePanel("LendingClub Loan Listing Data"),
   
   # Sidebar with a slider input for number of bins
   sidebarPanel(
@@ -19,11 +13,75 @@ shinyUI(pageWithSidebar(
                 min = 1,
                 max = 50,
                 value = 30),
-    actionButton("submit_button", lable = "Submit")
+    actionButton("submit_button", label = "Submit")
+  ),
+  # nav list panel
+  navlistPanel(
+    "title",
+    fluid = TRUE,
+    widths = c(2, 8),
+    #tab 1
+    tabPanel(
+      "subtitle1",
+      tabsetPanel(
+        "subsubtitle1",
+        tabPanel("Plot 1",
+                 DT::dataTableOutput("dailyLoan")
+                 ),
+        tabPanel("Plot 2"),
+        tabPanel("Plot 3")
+      )
+    ),
+    #tab 2
+    tabPanel(
+      "subtitle 2"
+    ),
+    #tab 3
+    tabPanel(
+      "subtitle3"
+    ),
+    tabPanel(
+      selectInput(
+      "terms",
+      "Select terms:",
+      choices = ""
+    )
+    ),
+    tabPanel(
+      radioButtons(
+      "choose.grade",
+      "select grades:",
+      choices = ""  
+    )
   ),
   
-  # Show a plot of the generated distribution
+  # Show a table of the active loans
   mainPanel(
-    plotOutput("distPlot")
+    DT::dataTableOutput("dailyLoan")
+    )
+    
   )
-))
+)
+)
+#   # Application title
+#   titlePanel("LendingClub Loan Listing Data"),
+#   
+#   # Sidebar with a slider input for number of bins
+#   sidebarPanel(
+#     selectInput(
+#       "terms",
+#       "Select terms:",
+#       choices = ""
+#     ),
+#     radioButtons(
+#       "choose.grade",
+#       "select grades:",
+#       choices = ""  
+#     )
+#   ),
+#   
+#   # Show a table of the active loans
+#   mainPanel(
+#     DT::dataTableOutput("dailyLoan")
+#   )
+# ))
