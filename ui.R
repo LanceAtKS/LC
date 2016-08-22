@@ -2,7 +2,7 @@ library(shiny)
 library(shinyjs)
 
 shinyUI(fluidPage(
-  
+
   # Application title
   titlePanel("LendingClub Loan Listing Data"),
   

@@ -14,11 +14,7 @@ logging.initial("LC data loading")
 LC.logger <- getLogger("LC")
 loaded.Data <- load_data_tables(REFRESH_INTERVAL, .data.file.location, LC.logger)
 
-
 shinyServer(function(input, output, session) {
-  observeEvent(input$submit_button, {
-    toggle("Plot 1")
-  })
   loan.data <- reactive({
     tryCatch(
       loaded.Data()$loanData,

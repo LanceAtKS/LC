@@ -1,6 +1,6 @@
 PackratFormat: 1.4
-PackratVersion: 0.4.6.12
-RVersion: 3.2.3
+PackratVersion: 0.4.7.1
+RVersion: 3.3.0
 Repos: CRAN=https://cran.rstudio.com/
 
 Package: BH
@@ -195,8 +195,8 @@ Requires: R6, digest, jsonlite, mime, xtable, httpuv, htmltools
 
 Package: shinyjs
 Source: CRAN
-Version: 0.5.2
-Hash: 29de7294464559801762db81f05bfb33
+Version: 0.6
+Hash: 4886de05129a9c951fc70f70f994b6f8
 Requires: digest, htmltools, shiny, miniUI
 
 Package: stringi
